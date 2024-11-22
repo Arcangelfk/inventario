@@ -12,8 +12,8 @@
             color: #333;
         }
         header {
-            background: linear-gradient(120deg, #4facfe, #00f260);
-            color: white;
+            background: linear-gradient(120deg, #4facfe, #a9dbbd);
+            color: rgb(2, 0, 0);
             text-align: center;
             padding: 50px 20px;
         }
@@ -273,13 +273,65 @@
                 width: 90%;
             }
         }
+
+
+        .products {
+    margin: 40px 0;
+    text-align: center;
+}
+
+.products h2 {
+    color: #4facfe;
+    font-size: 2em;
+}
+
+.product-category {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+    padding: 20px;
+}
+
+.product-category h3 {
+    color: #4facfe;
+}
+
+.product-category p {
+    margin: 10px 0;
+}
+
+
+.order-section {
+    background: linear-gradient(90deg, #4facfe, #67eb9c);
+    color: rgb(11, 0, 0);
+    padding: 40px 20px;
+    border-radius: 10px;
+    text-align: center;
+    margin: 40px 0;
+}
+
+.order-section h2 {
+    font-size: 2.5em;
+    margin: 0 0 20px;
+}
+
+.order-section p {
+    font-size: 1.2em;
+    margin: 0 0 30px;
+}
+
+
     </style>
 </head>
 <body>
     <header>
-        <h1>Optimiza tu Gestión de Inventarios con Tecnología</h1>
-        <p>Simplifica la administración de tu negocio con nuestra solución innovadora.</p>
+        <h1>Bienvenido a EcoComida</h1>
+        <p>EcoComida es una empresa comprometida con ofrecer alimentos frescos, saludables y 100% orgánicos a todos aquellos que buscan una alternativa saludable y sostenible. Trabajamos directamente con productores locales que siguen prácticas agrícolas responsables y respetuosas con el medio ambiente.</p>
+        <p>Nuestra tienda está ubicada a pocos pasos de tu hogar, lo que te permite hacer tus compras de manera rápida y fácil. Olvídate de desplazarte largas distancias para conseguir lo que necesitas.</p>
     </header>
+
+    
     <div class="container">
         <div class="counters" style="flex-direction: row; justify-content: space-around;">
             <div class="counter" id="visitorsCounter">
@@ -303,31 +355,85 @@
                 <span id="adsViews">10</span>
             </div>
         </div>
+
+        <section class="products">
+            <h2>Productos que Ofrecemos</h2>
+        
+            <div class="product-category">
+                <h3>Frutas y Verduras Frescas</h3>
+                <p>Ofrecemos una variedad de frutas y verduras orgánicas, cultivadas sin el uso de pesticidas ni fertilizantes artificiales.</p>
+                <p><strong>Manzanas, plátanos, zanahorias, tomates, lechugas, espinacas.</strong> 
+            </div>
+        
+            <div class="product-category">
+                <h3>Cestas de Alimentos Orgánicos</h3>
+                <p>Personaliza tu cesta con una selección de productos frescos. Puedes elegir entre diferentes tamaños según tus necesidades: pequeña, mediana o grande.</p>
+                <p><strong>Una combinación de frutas, verduras, y productos gourmet como miel y mermeladas caseras.</strong> 
+            </div>
+        
+            <div class="product-category">
+                <h3>Productos Gourmet y Locales</h3>
+                <p>Aceites de oliva extra virgen, mermeladas caseras, quesos artesanales, y más. Apoyamos a pequeños productores locales.</p>
+                <p><strong>Miel de abeja orgánica, queso de cabra artesanal, aceite de oliva virgen extra.</strong> 
+            </div>
+        
+            <div class="product-category">
+                <h3>Bebidas Naturales</h3>
+                <p>Jugos frescos y batidos elaborados con ingredientes orgánicos, sin azúcares añadidos.</p>
+                <p><strong>Jugo de naranja natural, batido de frutos rojos, kombucha.</strong> 
+            </div>
+        
+            <div class="product-category">
+                <h3>Alimentos Listos para Comer</h3>
+                <p>Platos preparados con ingredientes frescos y saludables, ideales para quienes no tienen tiempo para cocinar pero desean mantener una dieta equilibrada.</p>
+                <p><strong>Ensaladas, wraps, bowls de quinoa.</strong> 
+            </div>
+        </section>
+
+
+
+
         <div class="image-container">
-            <img src="datos.jpg" alt="Gestión de Inventarios">
+            <img src="frutas.jpg" alt="Gestión de Inventarios">
         </div>
         <div class="features">
             <div class="feature">
-                <h2>Fácil de Usar</h2>
-                <p>Nuestra plataforma es intuitiva y diseñada para maximizar tu eficiencia.</p>
+                <h2>Servicio de Entrega a Domicilio</h2>
+                <p>Te llevamos tus compras a la puerta de tu casa, con envíos rápidos y gratuitos en zonas seleccionadas.</p>
             </div>
             <div class="feature">
-                <h2>Seguridad</h2>
-                <p>Tus datos están seguros con encriptación avanzada y respaldos regulares.</p>
+                <h2>Suscripción Mensual</h2>
+                <p>Si eres un cliente frecuente, puedes optar por una suscripción mensual para recibir una cesta de alimentos orgánicos cada semana.</p>
             </div>
             <div class="feature">
-                <h2>Personalizable</h2>
-                <p>Ajusta las configuraciones según las necesidades específicas de tu negocio.</p>
+                <h2>Asesoramiento Nutricional</h2>
+                <p>Ofrecemos consultas personalizadas con nutricionistas para ayudarte a crear un plan de alimentación saludable y sostenible.</p>
+            </div>
+            <div class="feature">
+                <h2>Talleres y Clases de Cocina Saludable</h2>
+                <p>Organizamos talleres en línea y presenciales donde enseñamos cómo preparar comidas saludables utilizando nuestros productos orgánicos.</p>
             </div>
         </div>
         <div class="testimonials">
             <div class="testimonial">
-                <p>"La gestión de inventarios nunca fue tan fácil. Gracias por esta herramienta."</p>
-                <strong>- Juan Pérez, Propietario de Tienda XYZ</strong>
+                <strong>Productos 100% Orgánicos y Frescos</strong>
+                <p>En EcoComida, te garantizamos alimentos libres de pesticidas, hormonas y productos químicos. Sabemos lo importante que es cuidar tu salud, por eso ofrecemos solo lo mejor.</p>
+                
             </div>
             <div class="testimonial">
-                <p>"Incrementamos nuestras ventas gracias a la precisión en el control de stock."</p>
-                <strong>- María López, Gerente de ABC Comercio</strong>
+                <strong>Apoyo a la Agricultura Local y Sostenible</strong>
+                <p>Al elegirnos, estás apoyando a pequeños agricultores locales que practican métodos agrícolas sostenibles, cuidando la tierra y promoviendo el comercio justo.</p>
+                
+            </div>
+            <div class="testimonial">
+                <strong>Comodidad y Facilidad</strong>
+                <p>No solo te ofrecemos productos saludables, sino que también lo hacemos de forma conveniente. Con nuestro servicio de entrega a domicilio, puedes disfrutar de los productos más frescos sin tener que salir de tu hogar.</p>
+                
+            </div>
+            <div class="testimonial">
+                <strong>Variedad y Personalización</strong>
+                <p>En EcoComida, entendemos que cada cliente tiene necesidades distintas. Por eso, ofrecemos opciones personalizadas, desde cestas de alimentos hasta asesoría nutricional.</p>
+                
             </div>
         </div>
         <div class="cta">
@@ -355,6 +461,12 @@
                     <div class="success-message" id="mainSuccessMessage" style="display: none;">¡Gracias! Hemos recibido tus datos.</div>
                 </form>
             </div>
+        </section>
+
+
+        <section class="order-section">
+            <h2>¡Haz tu Pedido Hoy!</h2>
+            <p>Explora nuestro catálogo en línea y comienza a disfrutar de alimentos saludables y frescos, entregados directamente en tu puerta. Si tienes alguna pregunta o necesitas asesoramiento personalizado, no dudes en ponerte en contacto con nosotros.</p>
         </section>
     </div>
     <div class="overlay" id="overlay" onclick="closePopup()">
