@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Inventarios Moderna</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        header {
+            background: linear-gradient(120deg, #4facfe, #00f260);
+            color: white;
+            text-align: center;
+            padding: 50px 20px;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 3em;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .counters {
+            display: flex;
+            flex-direction: row; /* Alineación horizontal */
+            justify-content: space-around; /* Espaciado entre las tarjetas */
+            margin: 40px 0;
+            text-align: center;
+        }
+        .counter {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 22%;
+            min-width: 200px;
+            margin: 10px;
+            padding: 20px;
+            transition: transform 0.3s;
+        }
+        .counter:hover {
+            transform: scale(1.05);
+        }
+        .counter h3 {
+            color: #4facfe;
+            font-size: 1.2em;
+        }
+        .counter span {
+            font-size: 2em;
+            font-weight: bold;
+        }
+        .icon {
+            width: 50px; /* Ajusta el tamaño del icono aquí */
+            height: auto;
+            margin-bottom: 10px;
+        }
+        .image-container {
+            position: relative;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+        .image-container img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin: 40px 0;
+        }
+        .feature {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 30%;
+            min-width: 250px;
+            margin: 10px;
+            padding: 20px;
+            text-align: center;
+        }
+        .feature h2 {
+            color: #4facfe;
+        }
+        .testimonials {
+            background-color: #f4f4f4;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        .testimonial {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 20px 0;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .cta {
+            text-align: center;
+            margin: 40px 0;
+        }
+        .cta button {
+            background: #4facfe;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background 0.3s, transform 0.3s;
+        }
+        .cta button:hover {
+            background: #00f260;
+            transform: scale(1.05);
+        }
+        form {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 40px 0;
+            max-width: 400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        input[type="text"], input[type="email"], input[type="tel"], textarea {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            transition: border-color 0.3s;
+        }
+        input[type="text"]:focus, input[type="email"]:focus, input[type="tel"]:focus, textarea:focus {
+            border-color: #4facfe;
+        }
+        input[type="submit"] {
+            background: #4facfe;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background 0.3s, transform 0.3s;
+        }
+        input[type="submit"]:hover {
+            background: #00f260;
+            transform: scale(1.05);
+        }
+        .contact-section {
+            background-color: #f4f4f4;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        .contact-form {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 40px 0;
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: left;
+        }
+        .contact-form h2 {
+            margin-bottom: 20px;
+            color: #4facfe;
+        }
+        .contact-form input[type="text"],
+        .contact-form input[type="email"],
+        .contact-form input[type="tel"],
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            transition: border-color 0.3s;
+        }
+        .contact-form input[type="text"]:focus,
+        .contact-form input[type="email"]:focus,
+        .contact-form input[type="tel"]:focus,
+        .contact-form textarea:focus {
+            border-color: #4facfe;
+        }
+        .contact-form input[type="submit"] {
+            background: #4facfe;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background 0.3s, transform 0.3s;
+        }
+        .contact-form input[type="submit"]:hover {
+            background: #00f260;
+            transform: scale(1.05);
+        }
+        .success-message {
+            color: green;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .popup {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            width: 80%;
+            max-width: 500px;
+            text-align: center;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .popup h2 {
+            margin-bottom: 20px;
+            color: #4facfe;
+        }
+        .popup p {
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+        .close-btn {
+            background: #4facfe;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background 0.3s, transform 0.3s;
+        }
+        .close-btn:hover {
+            background: #00f260;
+            transform: scale(1.05);
+        }
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+            .feature {
+                width: 45%;
+            }
+            .counter {
+                width: 45%;
+            }
+        }
+        @media (max-width: 480px) {
+            .feature {
+                width: 90%;
+            }
+            .counter {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Optimiza tu Gestión de Inventarios con Tecnología</h1>
+        <p>Simplifica la administración de tu negocio con nuestra solución innovadora.</p>
+    </header>
+    <div class="container">
+        <div class="counters" style="flex-direction: row; justify-content: space-around;">
+            <div class="counter" id="visitorsCounter">
+                <img src="vista.png" alt="Vista Icono" class="icon"> <!-- Icono para Vistas Páginas -->
+                <h3>Vistas Páginas</h3>
+                <span id="visitors">5</span>
+            </div>
+            <div class="counter" id="ctaCounter">
+                <img src="click.png" alt="Click Icono" class="icon"> <!-- Icono para Clics en CTA -->
+                <h3>Clics en CTA</h3>
+                <span id="ctaClicks">7</span>
+            </div>
+            <div class="counter" id="formCounter">
+                <img src="formulario.png" alt="Formulario Icono" class="icon"> <!-- Icono para Formularios Enviados -->
+                <h3>Formularios Enviados</h3>
+                <span id="formSubmissions">5</span>
+            </div>
+            <div class="counter" id="adsCounter">
+                <img src="impresiones.png" alt="Impresiones Icono" class="icon"> <!-- Icono para Impresiones -->
+                <h3>Impresiones</h3>
+                <span id="adsViews">10</span>
+            </div>
+        </div>
+        <div class="image-container">
+            <img src="datos.jpg" alt="Gestión de Inventarios">
+        </div>
+        <div class="features">
+            <div class="feature">
+                <h2>Fácil de Usar</h2>
+                <p>Nuestra plataforma es intuitiva y diseñada para maximizar tu eficiencia.</p>
+            </div>
+            <div class="feature">
+                <h2>Seguridad</h2>
+                <p>Tus datos están seguros con encriptación avanzada y respaldos regulares.</p>
+            </div>
+            <div class="feature">
+                <h2>Personalizable</h2>
+                <p>Ajusta las configuraciones según las necesidades específicas de tu negocio.</p>
+            </div>
+        </div>
+        <div class="testimonials">
+            <div class="testimonial">
+                <p>"La gestión de inventarios nunca fue tan fácil. Gracias por esta herramienta."</p>
+                <strong>- Juan Pérez, Propietario de Tienda XYZ</strong>
+            </div>
+            <div class="testimonial">
+                <p>"Incrementamos nuestras ventas gracias a la precisión en el control de stock."</p>
+                <strong>- María López, Gerente de ABC Comercio</strong>
+            </div>
+        </div>
+        <div class="cta">
+            <h2>¡Descarga Nuestra Guía Gratuita!</h2>
+            <p>Aprende más sobre cómo mejorar la gestión de inventarios en tu empresa.</p>
+            <button onclick="toggleForm()">Descargar Guía</button>
+        </div>
+        <form id="contactForm" style="display: none;">
+            <input type="text" id="name" placeholder="Nombre" required>
+            <input type="email" id="email" placeholder="Correo Electrónico" required>
+            <input type="tel" id="phone" placeholder="Celular" required>
+            <textarea id="message" placeholder="Mensaje" rows="4" required></textarea>
+            <input type="submit" value="Enviar">
+            <div class="success-message" id="successMessage" style="display: none;">¡Gracias! Hemos recibido tus datos.</div>
+        </form>
+        <section class="contact-section">
+            <div class="contact-form">
+                <h2>Contactanos</h2>
+                <form id="mainContactForm">
+                    <input type="text" id="mainName" placeholder="Nombre" required>
+                    <input type="email" id="mainEmail" placeholder="Correo Electrónico" required>
+                    <input type="tel" id="mainPhone" placeholder="Celular" required>
+                    <textarea id="mainMessage" placeholder="Mensaje" rows="5" required></textarea>
+                    <input type="submit" value="Enviar">
+                    <div class="success-message" id="mainSuccessMessage" style="display: none;">¡Gracias! Hemos recibido tus datos.</div>
+                </form>
+            </div>
+        </section>
+    </div>
+    <div class="overlay" id="overlay" onclick="closePopup()">
+        <div class="popup" onclick="event.stopPropagation()">
+            <h2>Información del Proyecto</h2>
+            <p><strong>Materia:</strong> EMPRENDIMIENTO DE BASE TECNOLÓGICA</p>
+            <p><strong>Participantes:</strong></p>
+            <p>MAURICIO FERNANDEZ PERDOMO</p>
+            <p>HERNAN CAMILO LOSADA RIVERA</p>
+            <p>GUILLERMO MUSE ULE</p>
+            <p>LUIS HUMBERTO PELAEZ</p>
+            <p><strong>Tutor:</strong> JAIVER PARRA</p>
+            <p><strong>Código:</strong> 202016906_97</p>
+            <button class="close-btn" onclick="closePopup()">Cerrar</button>
+        </div>
+    </div>
+    <script>
+        function toggleForm() {
+            var form = document.getElementById('contactForm');
+            if (form.style.display === 'none' || form.style.display === '') {
+                form.style.display = 'block';
+            } else {
+                form.style.display = 'none';
+            }
+        }
+
+        function updateCounter(counterId, increment, interval) {
+            let count = parseInt(document.getElementById(counterId).innerText);
+            setInterval(() => {
+                count += increment;
+                document.getElementById(counterId).innerText = count;
+            }, interval * 1000);
+        }
+
+        updateCounter('visitors', 1, getRandomInterval(20, 60));
+        updateCounter('ctaClicks', 1, getRandomInterval(30, 70));
+        updateCounter('formSubmissions', 1, 35);
+        updateCounter('adsViews', 1, 30);
+
+        function getRandomInterval(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            if (validateForm('contactForm')) {
+                incrementFormCounter();
+                showSuccessMessage('successMessage');
+                clearForm('contactForm');
+            }
+        });
+
+        document.getElementById('mainContactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            if (validateForm('mainContactForm')) {
+                incrementFormCounter();
+                showSuccessMessage('mainSuccessMessage');
+                clearForm('mainContactForm');
+            }
+        });
+
+        function validateForm(formId) {
+            const form = document.getElementById(formId);
+            const inputs = form.querySelectorAll('input, textarea');
+            for (let input of inputs) {
+                if (!input.value.trim()) {
+                    alert('Por favor, completa todos los campos.');
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        function incrementFormCounter() {
+            const counter = document.getElementById('formSubmissions');
+            let count = parseInt(counter.innerText);
+            count++;
+            counter.innerText = count;
+            counter.style.animation = 'incrementAnimation 1s';
+            counter.addEventListener('animationend', () => {
+                counter.style.animation = '';
+            });
+        }
+
+        function showSuccessMessage(messageId) {
+            const message = document.getElementById(messageId);
+            message.style.display = 'block';
+            setTimeout(() => {
+                message.style.display = 'none';
+            }, 3000);
+        }
+
+        function clearForm(formId) {
+            const form = document.getElementById(formId);
+            form.reset();
+        }
+
+        function closePopup() {
+            document.getElementById('overlay').style.display = 'none';
+        }
+
+        window.onload = function() {
+            document.getElementById('overlay').style.display = 'flex';
+        };
+    </script>
+    <style>
+        @keyframes incrementAnimation {
+            from { transform: scale(1); }
+            to { transform: scale(1.1); }
+        }
+    </style>
+</body>
+</html>
